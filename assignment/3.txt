@@ -1,0 +1,14 @@
+Explain what does django-admin.py make messages command is used
+for? 
+
+The `django-admin.py make messages` command is used in Django for a specific purpose related to internationalization and localization (i18n and l10n) of web applications. It is used to extract translatable strings from your Python code and templates and create or update message files that can be used for translation. Here's what this command does and why it is essential:
+
+1. **String Extraction**: In a Django project, you may have strings that need to be translated to different languages, such as user interface labels, error messages, and other text. The `make messages` command scans your Python source code and template files to find these strings.
+
+2. **Message Files**: When it identifies translatable strings, it generates or updates message files, typically with a `.po` (Portable Object) extension. These message files contain the original strings to be translated, along with placeholders for translated versions in different languages.
+
+3. **Catalogs for Translation**: The message files serve as a catalog that translators can use to provide translations for the extracted strings. Each `.po` file can represent a specific language, and translators can work on translating the strings into the target language.
+
+4. **Compilation**: After the translators have provided translations, you can compile the message files into binary `.mo` (Machine Object) files using the `django-admin.py compilemessages` command. These binary files are used by Django to display the translated strings to users.
+
+By using the `make messages` command and the entire internationalization and localization framework in Django, you can create a web application that can be easily adapted to multiple languages and regions, making it more accessible to a global audience. This feature is particularly important for websites and applications with an international user base, as it allows you to provide a localized and user-friendly experience for users from different linguistic backgrounds.

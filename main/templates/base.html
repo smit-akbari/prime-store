@@ -1,0 +1,228 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script>
+      function toggleMobileMenu() {
+        var mobileMenu = document.getElementById("mobile-menu-2");
+        var mobileMenuButton = document.getElementById("mobile-menu-button");
+
+        if (mobileMenu.style.display === "block") {
+          mobileMenu.style.display = "none";
+          mobileMenuButton.innerHTML =
+            '<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>';
+        } else {
+          mobileMenu.style.display = "block";
+          mobileMenuButton.innerHTML =
+            '<svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>';
+        }
+      }
+    </script>
+    <title>
+        {% block title %}
+        
+        {% endblock %} | antilia
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* CSS for the user avatar image */
+      .user-avatar {
+        width: 30px; /* Adjust the width as needed */
+        height: 30px; /* Adjust the height as needed */
+        border-radius: 50%; /* Makes the image round (for a circular avatar) */
+        object-fit: cover; /* Ensures the image covers the entire container */
+        border: 2px solid #ffffff; /* Add a white border around the image */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar -->
+    <div class="2xl:container 2xl:mx-auto">
+      <div class=" rounded shadow-lg py-7 px-7" style="background-color: #fefce8;">
+        <nav class="flex justify-between">   
+            <img style="height: 35px; width: 35px;"
+              src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4cT7W7_LCW-t4p1uoDQA4o8nDeXuFu4dVe8ldiIXYvXfs7ardI0I-0wOvCk76twVAvms&usqp=CAU >
+              <div class="flex items-center space-x-3 lg:pr-16 pr-6">
+            <h2 class="font-normal text-2xl leading-6 text-gray-800">
+              PRIME STORE
+            </h2>
+          </div>
+          <ul class="hidden md:flex flex-auto space-x-2">
+          </ul>
+        </nav>
+        <!-- for smaller devcies -->
+
+        <div class="block md:hidden w-full mt-5">
+          <div
+            onclick="selectNew()"
+            class="cursor-pointer px-4 py-3 bg-color-#fcd34d text-white rounded flex justify-between items-center w-full">
+            <div class="flex space-x-2">
+              <span id="s1" class="font-semibold text-sm leading-3 hidden"
+                >Selected:
+              </span>
+              <p
+                id="textClicked"
+                class="font-normal text-sm leading-3 focus:outline-none hover:bg-gray-800 duration-100 cursor-pointer"
+              >
+                Dashboard
+              </p>
+            </div>
+            <svg
+              id="ArrowSVG"
+              class="transform"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="C:\Users\HP\Downloads\28.svg"
+            >
+              <path
+                d="M6 9L12 15L18 9"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="relative">
+            <ul
+              id="list"
+              class="hidden font-normal text-base leading-4 absolute top-2 w-full rounded shadow-md"
+            >
+              <li
+                onclick="selectedSmall()"
+                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal"
+              >
+                Services
+              </li>
+              <li
+                onclick="selectedSmall()"
+                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal"
+              >
+                Event
+              </li>
+              <li
+                onclick="selectedSmall()"
+                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal"
+              >
+                Gallery
+              </li>
+              <li
+                onclick="selectedSmall()"
+                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal"
+              >
+                Emergency contact
+              </li>
+              <li
+                onclick="selectedSmall()"
+                class="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50 focus:outline-none focus:bg-gray-100 hover:bg-gray-100 duration-100 cursor-pointer text-xs leading-3 font-normal"
+              >
+                Suggestion
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% block body %}
+    <h1 class="text-center my-5">page-content</h1>
+    {% endblock %}
+
+    <footer class="text-gray-600 body-font" style="background-color: #fefce8;">
+      <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+        <img style="height: 35px; width: 35px;"
+              src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4cT7W7_LCW-t4p1uoDQA4o8nDeXuFu4dVe8ldiIXYvXfs7ardI0I-0wOvCk76twVAvms&usqp=CAU >
+              <div class="flex items-center space-x-3 lg:pr-16 pr-6">
+            <h2 class="font-normal text-2xl leading-6 text-gray-800">
+              PRIME STORE
+            </h2>
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 Tops Technology Pvt. Ltd. —
+          <a href="#" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@Smit Akbari</a>
+        </p>
+        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+          <a class="text-gray-500">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-500">
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-500">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+            </svg>
+          </a>
+          <a class="ml-3 text-gray-500">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+              <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+              <circle cx="4" cy="4" r="2" stroke="none"></circle>
+            </svg>
+          </a>
+        </span>
+      </div>
+    </footer>
+   
+    
+    <script>
+      function selected() {
+        var targeted = event.target;
+        var clicked = targeted.parentElement;
+
+        var child = clicked.children;
+        console.log(child);
+
+        for (let i = 0; i < child.length; i++) {
+          if (child[i].classList.contains("text-white")) {
+            console.log(child[i]);
+            child[i].classList.remove("text-white", "bg-#fcd34d");
+            child[i].classList.add(
+              "text-gray-600",
+              "bg-gray-50",
+              "border",
+              "border-white"
+            );
+          }
+        }
+
+        targeted.classList.remove(
+          "text-gray-600",
+          "bg-gray-50",
+          "border",
+          "border-white"
+        );
+        targeted.classList.add("text-white", "bg-#fcd34d");
+      }
+
+      function selectNew() {
+        var newL = document.getElementById("list");
+        newL.classList.toggle("hidden");
+
+        document.getElementById("ArrowSVG").classList.toggle("rotate-180");
+      }
+
+      function selectedSmall() {
+        var text = event.target.innerText;
+        var newL = document.getElementById("list");
+        var newText = document.getElementById("textClicked");
+        newL.classList.add("hidden");
+        document.getElementById("ArrowSVG").classList.toggle("rotate-180");
+        newText.innerText = text;
+
+        document.getElementById("s1").classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

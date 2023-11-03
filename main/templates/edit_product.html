@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Product</title>
+</head>
+<body>
+    <h1>Edit Product</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <h2>Product Name: {{ product.product_name }}</h2>
+        
+        <h3>Product Subcategory Details</h3>
+
+        <label for="product_price">Price:</label>
+        <input type="number" step="0.01" name="product_price" value="{{ product.productsubcat.product_price }}" required>
+
+        <label for="product_image">Image URL:</label>
+        <input type="url" name="product_image" value="{{ product.productsubcat.product_image.url }}" required>
+
+        <label for="product_model">Model:</label>
+        <input type="text" name="product_model" value="{{ product.productsubcat.product_model }}" required>
+
+        <label for="product_ram">RAM:</label>
+        <input type="text" name="product_ram" value="{{ product.productsubcat.product_ram }}" required>
+
+        <input type="submit" value="Save Changes">
+    </form>
+</body>
+</html>

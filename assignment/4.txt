@@ -1,0 +1,59 @@
+What is Django URLs?make program to create django urls
+
+In Django, the URLs (Uniform Resource Locators) play a crucial role in mapping a URL to a specific view or function in your web application. The Django URL routing system allows you to define patterns for URLs and route them to the appropriate view functions, which determine how to respond to specific HTTP requests. The URL patterns are defined in the `urls.py` file of your Django project and are used to create a clean and organized structure for handling different routes within your application.
+
+Here's how you can create Django URLs in your project:
+
+1. **Create a Django Project**: If you haven't already, you need to create a Django project. You can do this using the following command:
+
+  
+   django-admin startproject projectname
+   
+
+2. **Create a Django App**: Inside your project, create a Django app using the following command:
+
+
+   python manage.py startapp appname
+
+
+3. **Define URLs**: In your app directory, create a `urls.py` file if it doesn't already exist. This is where you'll define the URL patterns for your app. You can define URL patterns using the `url()` function or the `path()` function, depending on your Django version. Here's an example:
+
+ 
+   # appname/urls.py
+   from django.urls import path
+   from . import views
+
+   urlpatterns = [
+       path('', views.index, name='index'),  # Maps the root URL to the index view
+       path('about/', views.about, name='about'),  # Maps the "/about/" URL to the about view
+   ]
+
+
+4. **Create View Functions**: In your app's `views.py` file, define view functions that correspond to the URL patterns you've defined. These functions handle HTTP requests and return HTTP responses. For example:
+
+
+   # appname/views.py
+   from django.http import HttpResponse
+
+   def index(request):
+       return HttpResponse("Welcome to the index page")
+
+   def about(request):
+       return HttpResponse("This is the about page")
+
+
+5. **Include App URLs in Project URLs**: In your project's `urls.py` file, include the URL patterns of your app using the `include()` function. This is where you can also define global URL patterns if needed. For example:
+
+   # projectname/urls.py
+   from django.contrib import admin
+   from django.urls import path, include
+
+   urlpatterns = [
+       path('admin/', admin.site.urls),
+       path('app/', include('appname.urls')),  # Include the app's URLs
+   ]
+ 
+
+In this example, the `index` view is mapped to the root URL, and the `about` view is mapped to the "/about/" URL. When a user accesses these URLs, the corresponding view functions are called to generate the HTTP response.
+
+Once you've defined your URLs, make sure to run the development server using `python manage.py runserver`, and you can access your views via the defined URLs in your browser.

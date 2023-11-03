@@ -1,0 +1,16 @@
+Explain what does django-admin.py make messages command is used
+for? 
+
+The `django-admin.py make messages` command in Django is used for internationalization and localization (i18n and l10n) of web applications. Its primary purpose is to extract translatable strings from your Python code and templates and create or update message files that can be used for translation. Here's a more detailed explanation of what this command is used for:
+
+1. **String Extraction**: In a multilingual web application, you need to make sure that text strings presented to users are available in multiple languages. These text strings include labels, error messages, user instructions, and any other textual content that needs to be translated. The `make messages` command extracts these translatable strings from your Python source code and template files.
+
+2. **Message Files**: When the `make messages` command identifies translatable strings, it generates or updates message files, typically with a `.po` (Portable Object) extension. These message files contain the original strings to be translated and provide a placeholder for their translations in different languages. Each message file corresponds to a specific language and serves as a catalog for translation.
+
+3. **Catalogs for Translation**: These message files created by the `make messages` command serve as catalogs for translation. Translators can work on translating the extracted strings from the original language (usually English) into the target languages. The message files provide the context and placeholders needed for accurate translations.
+
+4. **Message Context**: The message files also include context information, helping translators understand the context in which a particular string is used in the application. This context is crucial for ensuring accurate translations.
+
+5. **Compilation**: After the translations are provided by translators, you can compile the message files into binary `.mo` (Machine Object) files using the `django-admin.py compilemessages` command. These compiled files are used by Django to display the translated strings to users based on their language preferences.
+
+By using the `make messages` command and the broader internationalization and localization framework in Django, you can create a web application that is easily adaptable to multiple languages and regions, providing a localized and user-friendly experience for users from diverse linguistic backgrounds. This feature is particularly important for websites and applications with an international audience, as it allows you to make your content accessible to users worldwide.
